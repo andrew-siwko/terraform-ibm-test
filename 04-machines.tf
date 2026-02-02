@@ -10,8 +10,8 @@ data "ibm_is_image" "rhel9_image" {
 resource "ibm_is_instance" "asiwko-vm-01" {
   name    = "asiwko-vm-01"
   image   = data.ibm_is_image.rhel9_image.id
-  profile = "cx2-2x4"
-  # profile = "bxf-2x8"
+  # profile = "cx2-2x4"
+  profile = "bxf-2x8"
 
   primary_network_interface {
     subnet          = ibm_is_subnet.asiwko_subnet_2.id
