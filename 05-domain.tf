@@ -17,7 +17,7 @@ resource "linode_domain" "siwko_org" {
 #     name = "ibm01"
 #     record_type = "A"
 #     ttl_sec = 5
-#     target = google_compute_instance.vm_instance.network_interface.0.access_config.0.nat_ip
+#     target = ibm_is_floating_ip.asiwko_public_ip
 # }
 
 
