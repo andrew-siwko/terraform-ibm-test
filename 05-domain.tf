@@ -11,13 +11,13 @@ resource "linode_domain" "siwko_org" {
     ttl_sec     = 30
 }
 
-# # Records for the public IP addresses.
-# resource "linode_domain_record" "ibm01_siwko_org" {
-#     domain_id = linode_domain.siwko_org.id
-#     name = "ibm01"
-#     record_type = "A"
-#     ttl_sec = 5
-#     target = ibm_is_floating_ip.asiwko_public_ip
-# }
+# Records for the public IP addresses.
+resource "linode_domain_record" "ibm01_siwko_org" {
+    domain_id = linode_domain.siwko_org.id
+    name = "ibm01"
+    record_type = "A"
+    ttl_sec = 5
+    target = ibm_is_floating_ip.asiwko_public_ip
+}
 
 
