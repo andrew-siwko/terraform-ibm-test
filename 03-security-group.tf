@@ -22,6 +22,7 @@ resource "ibm_is_security_group_rule" "inbound_rules" {
 }
 
 resource "ibm_is_security_group_rule" "outbound_rhel_activation" {
+  name      = "outbound-rhel-activation" 
   group     = ibm_is_security_group.asiwko_sg.id
   direction = "outbound"
   remote    = "0.0.0.0/0"
@@ -30,11 +31,11 @@ resource "ibm_is_security_group_rule" "outbound_rhel_activation" {
   port_max  = 443 
 }
 resource "ibm_is_security_group_rule" "inbound_icmp" {
+  name      = "inbound-icmp" 
   group     = ibm_is_security_group.asiwko_sg.id
   direction = "inbound"
   remote    = "0.0.0.0/0"
   protocol  = "icmp"
-  
   type = 8
   code = 0
 }
