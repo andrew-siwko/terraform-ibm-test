@@ -12,11 +12,10 @@ terraform {
     endpoints = {
       s3 = "https://s3.us-south.cloud-object-storage.appdomain.cloud"
     }
+    use_path_style              = true  }
     skip_region_validation      = true
     skip_credentials_validation = true
     skip_metadata_api_check     = true
-    force_path_style            = true
-  }
 }
 
 provider "ibm" {
