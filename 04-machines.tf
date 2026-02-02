@@ -29,12 +29,12 @@ resource "ibm_is_instance" "asiwko-vm-01" {
   depends_on = [time_sleep.wait_for_networking]
   primary_network_interface {
     name            = "asiwko-vm-01-nic"
-    subnet          = ibm_is_subnet.asiwko_subnet_2.id
+    subnet          = ibm_is_subnet.asiwko_subnet_3.id
     security_groups = [ibm_is_security_group.asiwko_sg.id]
   }
 
   vpc  = ibm_is_vpc.asiwko_vpc.id
-  zone = "us-south-2"
+  zone = "us-south-3"
   keys = [ibm_is_ssh_key.ssh_key.id]
 
   timeouts {
