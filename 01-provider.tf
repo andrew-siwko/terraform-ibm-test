@@ -4,6 +4,9 @@ terraform {
       source  = "IBM-Cloud/ibm"
       version = ">= 1.53.0"
     }
+    linode = {
+      source  = "linode/linode"
+    }
   }
   backend "s3" {
     bucket                      = "siwko-terraform-state"
