@@ -5,24 +5,24 @@ terraform {
       version = ">= 1.53.0"
     }
     linode = {
-      source  = "linode/linode"
+      source = "linode/linode"
     }
     time = {
       source = "hashicorp/time"
     }
   }
   backend "s3" {
-    bucket                      = "siwko-terraform-state"
-    key                         = "ibm-vsi/terraform.tfstate"
-    region                      = "us-south"
+    bucket = "siwko-terraform-state"
+    key    = "ibm-vsi/terraform.tfstate"
+    region = "us-south"
     endpoints = {
       s3 = "https://s3.us-south.cloud-object-storage.appdomain.cloud"
     }
 
     # MANDATORY for IBM COS / S3-compatible backends:
-    skip_requesting_account_id  = true
-    skip_s3_checksum            = true
-    
+    skip_requesting_account_id = true
+    skip_s3_checksum           = true
+
     # These should stay as previously configured:
     use_path_style              = true
     skip_region_validation      = true

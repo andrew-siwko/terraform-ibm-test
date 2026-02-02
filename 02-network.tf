@@ -14,7 +14,3 @@ resource "ibm_is_subnet" "asiwko_subnet_2" {
   zone            = "us-south-2"
   ipv4_cidr_block = "10.240.64.0/24"
 }
-resource "ibm_is_floating_ip" "asiwko_public_ip" {
-  name   = "asiwko-vm-01-fip"
-  target = ibm_is_instance.asiwko-vm-01.primary_network_interface[0].id
-}
