@@ -3,9 +3,13 @@ resource "ibm_is_ssh_key" "ssh_key" {
   public_key = file("/container_shared/ansible/ansible_rsa.pub")
 }
 
+data "ibm_is_image" "rhel9_image" {
+  name = "bm-redhat-9-6-minimal-amd64-6" #
+}
+
 resource "ibm_is_instance" "asiwko-vm-01" {
-  name    = "rhel9-web-server"
-  image   = "r006-74b862b7-5f73-4791-b371-3a05e55e0034" 
+  name    = "asiwko-vm-01"
+  image   = data.ibm_is_image.rhel9_image.id
   profile = "cx2-2x4"
   
   primary_network_interface {
