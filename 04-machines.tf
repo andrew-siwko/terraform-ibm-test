@@ -9,11 +9,11 @@ resource "ibm_is_instance" "asiwko-vm-01" {
   profile = "cx2-2x4"
   
   primary_network_interface {
-    subnet          = ibm_is_subnet.asiwko-subnet.id
-    security_groups = [ibm_is_security_group.web_sg.id]
+    subnet          = ibm_is_subnet.asiwko_subnet.id
+    security_groups = [ibm_is_security_group.asiwko_sg.id]
   }
 
-  vpc  = ibm_is_vpc.asiwko-vpc.id
+  vpc  = ibm_is_vpc.asiwko_vpc.id
   zone = "us-south-1"
   keys = [ibm_is_ssh_key.ssh_key.id]
 }
