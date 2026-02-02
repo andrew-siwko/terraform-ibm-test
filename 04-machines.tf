@@ -1,10 +1,20 @@
+resource "time_sleep" "wait_for_networking" {
+  depends_on = [
+    ibm_is_subnet.asiwko_subnet_2,
+    ibm_is_security_group_rule.outbound_rhel_activation
+  ]
+
+  create_duration = "60s"
+}
+
 resource "ibm_is_ssh_key" "ssh_key" {
   name       = "asiwko-ssh-key"
   public_key = file("/container_shared/ansible/ansible_rsa.pub")
 }
 
 data "ibm_is_image" "rhel9_image" {
-  name = "ibm-redhat-9-6-minimal-amd64-6" #
+  # name = "ibm-redhat-9-6-minimal-amd64-6" 
+  name = "ibm-redhat-9-4-full-amd64-6"
 }
 
 resource "ibm_is_instance" "asiwko-vm-01" {
@@ -24,3 +34,7 @@ resource "ibm_is_instance" "asiwko-vm-01" {
   keys = [ibm_is_ssh_key.ssh_key.id]
 }
 
+resource "ibm_is_floating_ip" "asiwko_public_ip" {
+  name   = "asiwko-vm-01-fip"
+  target = ibm_is_instance.asiwko-vm-01.primary_network_interface[0].id
+}
