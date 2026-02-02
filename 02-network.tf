@@ -2,8 +2,7 @@ resource "ibm_is_vpc" "asiwko-vpc" {
   name = "terraform-vpc"
 }
 
-# 3. Define a Subnet
-resource "ibm_is_subnet" "subnet" {
+resource "ibm_is_subnet" "asiwko-subnet" {
   name            = "terraform-subnet"
   vpc             = ibm_is_vpc.vpc.id
   zone            = "us-south-1"
