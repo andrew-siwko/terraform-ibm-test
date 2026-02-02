@@ -20,3 +20,12 @@ resource "ibm_is_security_group_rule" "inbound_rules" {
   port_min = each.value
   port_max = each.value
 }
+
+resource "ibm_is_security_group_rule" "outbound_rhel_activation" {
+  group     = ibm_is_security_group.asiwko_sg.id
+  direction = "outbound"
+  remote    = "0.0.0.0/0"
+  protocol  = "tcp"
+  port_min  = 80
+  port_max  = 443 
+}
