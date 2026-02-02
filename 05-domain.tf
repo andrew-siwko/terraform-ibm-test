@@ -17,7 +17,7 @@ resource "linode_domain_record" "ibm01_siwko_org" {
     name = "ibm01"
     record_type = "A"
     ttl_sec = 5
-    target = ibm_is_floating_ip.asiwko_public_ip
+    target = ibm_is_floating_ip.asiwko_public_ip.address
 }
 
 
