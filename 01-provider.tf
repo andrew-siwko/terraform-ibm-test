@@ -12,10 +12,17 @@ terraform {
     endpoints = {
       s3 = "https://s3.us-south.cloud-object-storage.appdomain.cloud"
     }
-    use_path_style              = true  }
+
+    # MANDATORY for IBM COS / S3-compatible backends:
+    skip_requesting_account_id  = true
+    skip_s3_checksum            = true
+    
+    # These should stay as previously configured:
+    use_path_style              = true
     skip_region_validation      = true
     skip_credentials_validation = true
     skip_metadata_api_check     = true
+  }
 }
 
 provider "ibm" {
