@@ -13,6 +13,6 @@ output "asiwko-vm-01" {
   value = ibm_is_instance.asiwko-vm-01.*
 }
 
-output "asiwko-public-ip" {
-  value = ibm_is_floating_ip.asiwko_public_ip.address
-}
+# output "asiwko-public-ip" {
+#   value = ibm_is_floating_ip.asiwko_public_ip.address
+# }
