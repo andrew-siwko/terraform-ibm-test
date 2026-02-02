@@ -21,7 +21,11 @@ resource "ibm_is_instance" "asiwko-vm-01" {
   image = data.ibm_is_image.rhel9_image.id
   # profile = "cx2-2x4"
   profile = "bxf-2x8"
-  metadata_service_enabled = true
+  metadata_service {
+    enabled            = true
+    protocol           = "http"
+    response_hop_limit = 1
+  }  
   depends_on = [time_sleep.wait_for_networking]
   primary_network_interface {
     name            = "asiwko-vm-01-nic"
