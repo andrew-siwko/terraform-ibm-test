@@ -1,6 +1,7 @@
 resource "time_sleep" "wait_for_networking" {
   depends_on = [
     ibm_is_subnet.asiwko_subnet_3,
+    ibm_is_subnet_public_gateway_attachment.asiwko_pgw_attach_z3,
     ibm_is_security_group_rule.outbound_rhel_activation
   ]
 
