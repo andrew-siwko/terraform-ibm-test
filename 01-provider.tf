@@ -7,6 +7,9 @@ terraform {
     linode = {
       source  = "linode/linode"
     }
+    time = {
+      source = "hashicorp/time"
+    }
   }
   backend "s3" {
     bucket                      = "siwko-terraform-state"
