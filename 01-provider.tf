@@ -6,7 +6,7 @@ terraform {
     }
   }
   backend "s3" {
-    bucket                      = "siwko-terraform-state-lts"
+    bucket                      = "siwko-terraform-state"
     key                         = "ibm-vsi/terraform.tfstate"
     region                      = "us-south"
     endpoints = {
