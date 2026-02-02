@@ -4,6 +4,7 @@
 # https://cloud.ibm.com/docs/cli?topic=cli-install-ibmcloud-cli
 #ibmcloud login
 ibmcloud plugin install cloud-object-storage
+ibmcloud plugin install vpc-infrastructure
 
 ibmcloud resource groups
 ibmcloud target -g Default
@@ -27,5 +28,11 @@ ibmcloud resource service-key-create terraform-cos-key Manager --instance-name m
 ibmcloud resource service-key terraform-cos-key
 
 # at this point, set up jenkins with the environment variables for access.
-# COS_ACCESS_KEY
-# COS_ACCESS_SECRET
+# AWS_ACCESS_KEY=${COS_ACCESS_KEY}
+# AWS_ACCESS_SECRET=${COS_ACCESS_SECRET}
+
+#ibmcloud iam api-key-create terraform-migration-key -d "Key for Jenkins Terraform migration" --file ~/terraform_key.json
+# grap the key out of this file and put it in IC_API_KEY
+
+# how to find images
+ibmcloud is images | grep redhat
