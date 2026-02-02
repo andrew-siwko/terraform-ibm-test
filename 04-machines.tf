@@ -18,8 +18,8 @@ data "ibm_is_image" "rhel9_image" {
 }
 
 resource "ibm_is_instance" "asiwko-vm-01" {
-  name    = "asiwko-vm-01"
-  image   = data.ibm_is_image.rhel9_image.id
+  name  = "asiwko-vm-01"
+  image = data.ibm_is_image.rhel9_image.id
   # profile = "cx2-2x4"
   profile = "bxf-2x8"
 
@@ -35,6 +35,7 @@ resource "ibm_is_instance" "asiwko-vm-01" {
 }
 
 resource "ibm_is_floating_ip" "asiwko_public_ip" {
-  name   = "asiwko-vm-01-fip"
-  target = ibm_is_instance.asiwko-vm-01.primary_network_interface[0].id
+  name       = "asiwko-vm-01-fip"
+  target     = ibm_is_instance.asiwko-vm-01.primary_network_interface[0].id
+  depends_on = [ibm_is_instance.asiwko-vm-01]
 }
