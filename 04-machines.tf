@@ -36,6 +36,10 @@ resource "ibm_is_instance" "asiwko-vm-01" {
   vpc  = ibm_is_vpc.asiwko_vpc.id
   zone = "us-south-2"
   keys = [ibm_is_ssh_key.ssh_key.id]
+
+  timeouts {
+    create = "30m"
+  }
 }
 
 resource "ibm_is_floating_ip" "asiwko_public_ip" {
