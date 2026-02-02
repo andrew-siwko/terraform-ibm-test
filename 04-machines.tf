@@ -1,5 +1,5 @@
 resource "ibm_is_ssh_key" "ssh_key" {
-  name       = "terraform-ssh-key"
+  name       = "asiwko-ssh-key"
   public_key = file("/container_shared/ansible/ansible_rsa.pub")
 }
 
@@ -10,8 +10,9 @@ data "ibm_is_image" "rhel9_image" {
 resource "ibm_is_instance" "asiwko-vm-01" {
   name    = "asiwko-vm-01"
   image   = data.ibm_is_image.rhel9_image.id
-  profile = "cx2-2x4"
-  
+  # profile = "cx2-2x4"
+  profile = "bxf-2x8"
+
   primary_network_interface {
     subnet          = ibm_is_subnet.asiwko_subnet.id
     security_groups = [ibm_is_security_group.asiwko_sg.id]
