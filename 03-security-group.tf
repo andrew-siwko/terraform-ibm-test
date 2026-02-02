@@ -1,9 +1,7 @@
-resource "ibm_is_security_group" "web_sg" {
-  name = "web-server-sg"
-  vpc  = ibm_is_vpc.asiwko-vpc.id
+resource "ibm_is_security_group" "asiwko_sg" {
+  name = "asiwko-sg"
+  vpc  = ibm_is_vpc.asiwko_vpc.id
 }
-
-
 
 
 resource "ibm_is_security_group_rule" "inbound_rules" {
@@ -14,7 +12,7 @@ resource "ibm_is_security_group_rule" "inbound_rules" {
     app   = 8080
   }
   
-  group     = ibm_is_security_group.web_sg.id
+  group     = ibm_is_security_group.asiwko_sg.id
   direction = "inbound"
   remote    = "0.0.0.0/0"
   
