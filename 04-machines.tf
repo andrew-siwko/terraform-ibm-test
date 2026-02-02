@@ -13,8 +13,7 @@ resource "ibm_is_ssh_key" "ssh_key" {
 }
 
 data "ibm_is_image" "rhel9_image" {
-  # name = "ibm-redhat-9-6-minimal-amd64-6" 
-  name = "ibm-redhat-9-4-full-amd64-6"
+  name = "ibm-redhat-9-6-minimal-amd64-6" 
 }
 
 resource "ibm_is_instance" "asiwko-vm-01" {
