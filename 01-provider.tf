@@ -9,7 +9,9 @@ terraform {
     bucket                      = "siwko-terraform-state-lts"
     key                         = "ibm-vsi/terraform.tfstate"
     region                      = "us-south"
-    endpoint                    = "s3.us-south.cloud-object-storage.appdomain.cloud"
+    endpoints = {
+      s3 = "https://s3.us-south.cloud-object-storage.appdomain.cloud"
+    }
     skip_region_validation      = true
     skip_credentials_validation = true
     skip_metadata_api_check     = true
