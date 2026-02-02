@@ -1,6 +1,6 @@
 resource "ibm_is_security_group" "web_sg" {
   name = "web-server-sg"
-  vpc  = ibm_is_vpc.vpc.id
+  vpc  = ibm_is_vpc.asiwko-vpc.id
 }
 
 resource "ibm_is_security_group_rule" "inbound_rules" {
