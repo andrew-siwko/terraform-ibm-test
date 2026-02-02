@@ -14,7 +14,7 @@ resource "ibm_is_instance" "asiwko-vm-01" {
   profile = "bxf-2x8"
 
   primary_network_interface {
-    subnet          = ibm_is_subnet.asiwko_subnet.id
+    subnet          = ibm_is_subnet.asiwko_subnet_1.id
     security_groups = [ibm_is_security_group.asiwko_sg.id]
   }
 
