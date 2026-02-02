@@ -2,8 +2,11 @@ output "asiwko-vpc" {
   value = ibm_is_vpc.asiwko_vpc.*
 }
 
-output "asiwko-subnet" {
-  value = ibm_is_subnet.asiwko_subnet.*
+output "asiwko-subnet-1" {
+  value = ibm_is_subnet.asiwko_subnet_1.*
+}
+output "asiwko-subnet-2" {
+  value = ibm_is_subnet.asiwko_subnet_2.*
 }
 
 output "asiwko-vm-01" {
