@@ -34,8 +34,8 @@ resource "ibm_is_instance" "asiwko-vm-01" {
   keys = [ibm_is_ssh_key.ssh_key.id]
 }
 
-# resource "ibm_is_floating_ip" "asiwko_public_ip" {
-#   name       = "asiwko-vm-01-fip"
-#   target     = ibm_is_instance.asiwko-vm-01.primary_network_interface[0].id
-#   depends_on = [ibm_is_instance.asiwko-vm-01]
-# }
+resource "ibm_is_floating_ip" "asiwko_public_ip" {
+  name       = "asiwko-vm-01-fip"
+  target     = ibm_is_instance.asiwko-vm-01.primary_network_interface[0].id
+  depends_on = [ibm_is_instance.asiwko-vm-01]
+}
