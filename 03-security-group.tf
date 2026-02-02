@@ -37,5 +37,4 @@ resource "ibm_is_security_group_rule" "inbound_icmp" {
   
   type = 8
   code = 0
-  }
-}
+  
