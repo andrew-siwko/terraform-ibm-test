@@ -31,7 +31,8 @@ resource "ibm_is_instance" "asiwko-vm-01" {
   primary_network_interface {
     name            = "asiwko-vm-01-nic"
     subnet          = ibm_is_subnet.asiwko_subnet_3.id
-    security_groups = [ibm_is_security_group.asiwko_sg.id]
+    # security_groups = [ibm_is_security_group.asiwko_sg.id]
+    security_groups = [ibm_is_vpc.asiwko_vpc.default_security_group]
   }
 
   vpc  = ibm_is_vpc.asiwko_vpc.id
