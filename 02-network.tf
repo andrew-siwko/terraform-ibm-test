@@ -1,5 +1,6 @@
 resource "ibm_is_vpc" "asiwko_vpc" {
   name = "asiwko-vpc"
+  default_security_group_name = ibm_is_security_group.asiwko_sg.name
 }
 
 resource "ibm_is_subnet" "asiwko_subnet_1" {
