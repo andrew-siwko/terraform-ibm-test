@@ -1,7 +1,7 @@
-resource "ibm_is_security_group" "asiwko_sg" {
-  name = "asiwko-sg"
-  vpc  = ibm_is_vpc.asiwko_vpc.id
-}
+# resource "ibm_is_security_group" "asiwko_sg" {
+#   name = "asiwko-sg"
+#   vpc  = ibm_is_vpc.asiwko_vpc.id
+# }
 
 
 resource "ibm_is_security_group_rule" "inbound_rules" {
@@ -12,7 +12,8 @@ resource "ibm_is_security_group_rule" "inbound_rules" {
     app   = 8080
   }
   
-  group     = ibm_is_security_group.asiwko_sg.id
+  # group     = ibm_is_security_group.asiwko_sg.id
+  group=ibm_is_vpc.asiwko_vpc.default_security_group
   direction = "inbound"
   remote    = "0.0.0.0/0"
   
@@ -23,7 +24,8 @@ resource "ibm_is_security_group_rule" "inbound_rules" {
 
 resource "ibm_is_security_group_rule" "outbound_rhel_activation" {
   name      = "outbound-rhel-activation" 
-  group     = ibm_is_security_group.asiwko_sg.id
+  # group     = ibm_is_security_group.asiwko_sg.id
+  group=ibm_is_vpc.asiwko_vpc.default_security_group
   direction = "outbound"
   remote    = "0.0.0.0/0"
   protocol  = "tcp"
@@ -32,7 +34,8 @@ resource "ibm_is_security_group_rule" "outbound_rhel_activation" {
 }
 resource "ibm_is_security_group_rule" "inbound_icmp" {
   name      = "inbound-icmp" 
-  group     = ibm_is_security_group.asiwko_sg.id
+  # group     = ibm_is_security_group.asiwko_sg.id
+  group=ibm_is_vpc.asiwko_vpc.default_security_group
   direction = "inbound"
   remote    = "0.0.0.0/0"
   protocol  = "icmp"
