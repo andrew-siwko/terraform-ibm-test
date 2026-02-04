@@ -1,7 +1,7 @@
 # Andrew's Multicloud Terraform Experiment
 ## Goal
 The goal of this repo is to create a usable VM in the IBM cloud.<br/>
-Everything here was done using the IBM free trial.  I had issues creating an account.  To my delight I got a phone call from IBM support when I opened up a ticket.  The next morning my issue was cleaned up and I was able to createa an account and begin the experiment.<br/>
+Everything here was done using the IBM free trial.  <br/>
 After this step completed I used Ansible to configure and install Tomcat and run a sample application.  [More on that later...](https://github.com/andrew-siwko/ansible-multi-cloud-tomcat-hello)<br/>
 It all starts with the [Cloud Console](https://cloud.ibm.com).
 
