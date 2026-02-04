@@ -54,7 +54,3 @@ resource "ibm_is_subnet_public_gateway_attachment" "asiwko_pgw_attach_z3" {
   subnet         = ibm_is_subnet.asiwko_subnet_3.id
   public_gateway = ibm_is_public_gateway.asiwko_pgw_z3.id
 }
-# resource "ibm_is_route_table" "asiwko_route_table" {
-#   name = "asiwko-route-table"
-#   vpc  = ibm_is_vpc.asiwko_vpc.id
-# }
