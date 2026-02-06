@@ -5,15 +5,21 @@ variable "LINODE_API_KEY" {
 }
 
 variable "instance_region" {
-  description = "The region to create the Linode instance"
+  description = "The region to create the instance"
   type        = string
-  default     = "us-southeast"
+  default     = "us-south"
+}
+
+variable "instance_zone" {
+  description = "The region to create the instance"
+  type        = string
+  default     = "us-south-3"
 }
 
 variable "instance_type" {
   description = "Which instance type to create"
   type    = string
-  default = "g6-nanode-1"
+  default = "bxf-2x8"
 }
 
 variable "domain_name" {
@@ -27,3 +33,10 @@ variable "domain_soa_email" {
   type    = string
   default = "asiwko@siwko.org"
 }
+
+variable "image_name" {
+  description = "The image to use"
+  type    = string
+  default = "ibm-redhat-9-6-minimal-amd64-6"
+}
+

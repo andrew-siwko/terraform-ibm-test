@@ -1,4 +1,6 @@
-instance_region  = "us-southeast"
-instance_type    = "g6-nanode-1"
+instance_region  = "us-south"
+instance_zone    = "us-south-3"
+instance_type    = "bxf-2x8"
 domain_name      = "siwko.org"
 domain_soa_email = "asiwko@siwko.org"
+image_name       = "ibm-redhat-9-6-minimal-amd64-6"
