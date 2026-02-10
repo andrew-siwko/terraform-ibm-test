@@ -3,7 +3,6 @@ resource "ibm_is_security_group_rule" "inbound_rules" {
     ssh   = 22
     http  = 80
     https = 443
-    app   = 8080
   }
   
   group=ibm_is_vpc.asiwko_vpc.default_security_group
