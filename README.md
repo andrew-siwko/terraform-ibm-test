@@ -43,6 +43,7 @@ fi
   * Based on my experience with AWS, I created a non-default security group for the VPC to avoid the destroy lock.  This didn't work at IBM.  I had to pull the default security group from the VPC.  What I experiences was 10 minute hangs in the instance creation followed by: Can't start instance because provisioning failed. [more_info](https://cloud.ibm.com/docs/vpc?topic=vpc-instance-status-messages#cannot-start-compute)
 * The admin user is root.  This felt normal.
 * I was able to finish this project in one day.
+* Project stats:
   * Start: 2026-02-02
   * Functional: 2026-02-02
   * Number of Jenkins builds to success: 51
