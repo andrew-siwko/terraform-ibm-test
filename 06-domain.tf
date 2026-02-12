@@ -16,7 +16,7 @@ resource "linode_domain" "dns_zone" {
 }
 
 # Records for the public IP addresses.
-resource "linode_domain_record" "ibm01_siwko_org" {
+resource "linode_domain_record" "ibm01_a_record" {
   domain_id   = linode_domain.dns_zone.id
   name        = "ibm01"
   record_type = "A"
