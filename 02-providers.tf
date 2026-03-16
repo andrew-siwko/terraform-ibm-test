@@ -11,23 +11,29 @@ terraform {
       source = "hashicorp/time"
     }
   }
-  backend "s3" {
-    bucket = "siwko-terraform-state"
-    key    = "ibm-vsi/terraform.tfstate"
-    region = "us-south"
-    endpoints = {
-      s3 = "https://s3.us-south.cloud-object-storage.appdomain.cloud"
-    }
-
-    # MANDATORY for IBM COS / S3-compatible backends:
-    skip_requesting_account_id = true
-    skip_s3_checksum           = true
-
-    use_path_style              = true
-    skip_region_validation      = true
-    skip_credentials_validation = true
-    skip_metadata_api_check     = true
+   backend "local" {
+    path = "/container_shared/tfstate/aws.tfstate"
   }
+
+  # This project started with the state stored in the provider's oject storage.  
+  # I moved it to local storage as providers charge for object storage and there was no benefit once the exercise was complete.
+  # backend "s3" {
+  #   bucket = "siwko-terraform-state"
+  #   key    = "ibm-vsi/terraform.tfstate"
+  #   region = "us-south"
+  #   endpoints = {
+  #     s3 = "https://s3.us-south.cloud-object-storage.appdomain.cloud"
+  #   }
+
+  #   # MANDATORY for IBM COS / S3-compatible backends:
+  #   skip_requesting_account_id = true
+  #   skip_s3_checksum           = true
+
+  #   use_path_style              = true
+  #   skip_region_validation      = true
+  #   skip_credentials_validation = true
+  #   skip_metadata_api_check     = true
+  # }
 }
 
 provider "ibm" {
