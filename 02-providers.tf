@@ -12,7 +12,7 @@ terraform {
     }
   }
    backend "local" {
-    path = "/container_shared/tfstate/aws.tfstate"
+    path = "/container_shared/tfstate/ibm.tfstate"
   }
 
   # This project started with the state stored in the provider's oject storage.  
